@@ -81,7 +81,13 @@ python3 -m unittest -v
 
 This is part of a 30-day challenge to learn cloud security by building in public. It follows the [log detector](https://github.com/twistedsol/log-detector), the [misconfiguration scan](https://github.com/twistedsol/misconfig-scan) and the [IAM policy checker](https://github.com/twistedsol/iam-policy-checker). I wrote the code together with Claude. No cloud account is needed, so everything here runs on my own computer.
 
-## Limits
+## What I learned
+
+- **A secrets scanner must not leak the secrets it finds.** Mine shows only the first 4 characters of each finding, so the report is safe to share.
+- **Fewer false alarms matter as much as finding things.** Placeholders like `changeme` and values read from the environment are skipped. A scanner that cries wolf gets ignored.
+- **Where a file lives matters.** My tests failed on GitHub because three sample files ended up in the wrong folders. The error message named the missing file, and fixing the paths turned the run green.
+-
+- ## Limits
 
 - It finds secrets by their shape (regular expressions). It cannot tell whether a key is still active.
 - It reads the files as they are now. It does not search Git history, where an old secret may still be.
