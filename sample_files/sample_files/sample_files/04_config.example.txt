@@ -1,0 +1,4 @@
+# SAMPLE FILE. A template with placeholders. Nothing here is a real secret.
+password = "changeme-please"
+api_key = "<your api key here>"
+token = "${DEPLOY_TOKEN}"
